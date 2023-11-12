@@ -34,15 +34,11 @@ struct fmt
 	int (*fn)(va_list, char[], int, int, int, int);
 }
 
-/**
- * fmt_t -  struct op
- * @fmt: input
- * @fm_t: input
- */
 
-typedef struct fmt fmt_t;
 
-int _printf(condt char *format, ...);
+typedef fmt fmt_t;
+
+int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i, va_list list, char buffer[],
 int flags, int width, int size);
 
