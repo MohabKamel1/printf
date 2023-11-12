@@ -14,7 +14,7 @@ This project provides a basic implementation of the printf function in the C pro
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/AbdalrhmanOmar2002/printf.git
+    git clone https://github.com/MohabKamel1/printf.git
     cd printf
     ```
 
