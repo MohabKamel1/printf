@@ -47,7 +47,7 @@ int width, int precision, int size)
 	UNUSED(size);
 	if (str == NULL)
 	{
-		str == "(null)";
+		str = "(null)";
 		if (precision >= 6)
 			str = "     ";
 	}
@@ -55,7 +55,7 @@ int width, int precision, int size)
 	while (str[length] != '\0')
 		length++;
 
-	if (precision >= 0 && precision < len)
+	if (precision >= 0 && precision < length)
 		length = precision;
 
 	if (width > length)
