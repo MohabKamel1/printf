@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * handke_print - print an urgument
+ * handle_print - Prints an argument based on its type
  * @fmt: input
  * @list: input
  * @ind: input
@@ -9,27 +9,23 @@
  * @flags: input
  * @width: input
  * @precision: input
- * @size: inpur
- * Return: 1 0r 2
+ * @size: input
+ * Return: 1 or 2;
  */
-
 int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
-int flags, int width, int precision, int size)
+	int flags, int width, int precision, int size)
 {
 	int i, unknow_len = 0, printed_chars = -1;
 	fmt_t fmt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
-		{'u', print_unsigned}, {'o', print_octal},
-		{'x', print_hexadecimal}, {'X', print_hexa_upper},
-		{'p', print_pointer}, {'S', print_non_printable},
-		{'r', print_reverse}, {'R', print_rot13string},
-		{'\0', NULL}
+		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
+		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
+		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
 	for (i = 0; fmt_types[i].fmt != '\0'; i++)
 		if (fmt[*ind] == fmt_types[i].fmt)
-			return (fmt_types[i].fn(list, buffer, flags, width,
-			precision, size));
+			return (fmt_types[i].fn(list, buffer, flags, width, precision, size));
 
 	if (fmt_types[i].fmt == '\0')
 	{
@@ -52,3 +48,4 @@ int flags, int width, int precision, int size)
 	}
 	return (printed_chars);
 }
+
