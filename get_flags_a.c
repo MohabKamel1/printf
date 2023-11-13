@@ -1,37 +1,34 @@
 #include "main.h"
 
 /**
- * get_flags - prints the contents of the buffer if it exist
- *
- * @format: array of char.
- * @par: a parameter.
- *
- * Return: flags
+ * get_flags - Calculates active flags
+ * @format: Formatted string in which to print the arguments
+ * @i: take a parameter.
+ * Return: Flags:
  */
-
-int get_flags(const char *format, int *par)
+int get_flags(const char *format, int *i)
 {
 	/* - + 0 # ' ' */
 	/* 1 2 4 8  16 */
-
-	int j, i;
+	int j, curr_i;
 	int flags = 0;
 	const char FLAGS_CH[] = {'-', '+', '0', '#', ' ', '\0'};
 	const int FLAGS_ARR[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
 
-	for (i = *par + 1; format[i] != '\0'; i++)
+	for (curr_i = *i + 1; format[curr_i] != '\0'; curr_i++)
 	{
 		for (j = 0; FLAGS_CH[j] != '\0'; j++)
-		{
-			if (format[i] == FLAGS_CH[j])
+			if (format[curr_i] == FLAGS_CH[j])
 			{
 				flags |= FLAGS_ARR[j];
 				break;
 			}
-			if (FLAGS_CH[j] == 0)
-				break;
-		}
+
+		if (FLAGS_CH[j] == 0)
+			break;
 	}
-	*par = i - 1;
+
+	*i = curr_i - 1;
+
 	return (flags);
 }
