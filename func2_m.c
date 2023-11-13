@@ -37,7 +37,7 @@ int width, int precision, int size)
 	{
 		buffer[ind--] = map_to[num_addrs % 16];
 		num_addrs /= 16;
-		length++
+		length++;
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
