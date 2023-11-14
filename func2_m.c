@@ -89,18 +89,6 @@ int print_non_printable(va_list types, char buffer[],
 	return (write(1, buffer, i + offset));
 }
 
-/**
- * print_reverse - Prints reverse string.
- * @types: input
- * @buffer: input
- * @flags: input
- * @width: input
- * @precision: input
- * @size: input
- * Return: Numbers of chars printed
- */
-
-
 
 /**
  * print_rot13string - Print a string in rot13.
